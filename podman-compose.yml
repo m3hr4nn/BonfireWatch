@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  container-health-monitor:
+    build: .
+    ports:
+      - "8443:8443"
+    volumes:
+      # Podman socket location
+      - /run/podman/podman.sock:/var/run/docker.sock:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    container_name: container-health-monitor
+    labels:
+      - "description=Container Health Monitor Dashboard (Podman)"
