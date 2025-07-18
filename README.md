@@ -7,8 +7,8 @@ A dark, gothic-themed real-time dashboard for monitoring Docker and Podman conta
 ```
     ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
     ║                                                               ║
-    ║        "Not all containers that are stopped are lost,        ║
-    ║         Not all that wander in memory are leaked."           ║
+    ║        "Not all containers that are stopped are lost,         ║
+    ║         Not all that wander in memory are leaked."            ║
     ║                                                               ║
     ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
 ```
