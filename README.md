@@ -20,7 +20,7 @@ A lightweight, real-time dashboard for monitoring Docker and Podman containers' 
 
 ```bash
 # Clone and run with Docker
-git clone <your-repo-url> && cd container-health-monitor && docker-compose up -d
+git clone https://github.com/m3hr4nn/BonfireWatch.git && cd container-health-monitor && docker-compose up -d
 
 # Or build and run directly
 docker build -t container-health-monitor . && docker run -d -p 8443:8443 -v /var/run/docker.sock:/var/run/docker.sock:ro container-health-monitor
@@ -33,7 +33,7 @@ docker build -t container-health-monitor . && docker run -d -p 8443:8443 -v /var
 systemctl --user enable --now podman.socket
 
 # Clone and run with Podman
-git clone <your-repo-url> && cd container-health-monitor && podman-compose up -d
+git clone https://github.com/m3hr4nn/BonfireWatch.git && cd container-health-monitor && podman-compose up -d
 
 # Or build and run directly
 podman build -t container-health-monitor . && podman run -d -p 8443:8443 -v /run/podman/podman.sock:/var/run/docker.sock:ro container-health-monitor
