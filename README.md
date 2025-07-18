@@ -91,6 +91,18 @@ Open your scrying device (browser) and venture to: **http://localhost:8443**
 
 *Behold the gothic dashboard where shadows dance with metrics, and containers bow before your watchful gaze.*
 
+### 🖼️ Visual Grimoire
+
+<div align="center">
+  <img src="screenshots/gothic-dashboard.png" alt="Container Vigil Gothic Dashboard" width="800">
+  <p><em>The Container Vigil - Where darkness meets monitoring excellence</em></p>
+</div>
+
+| **Desktop War Room** | **Mobile Vigil** |
+|---------------------|------------------|
+| ![Desktop View](screenshots/desktop-view.png) | ![Mobile View](screenshots/mobile-view.png) |
+| *Full gothic splendor on desktop* | *Vigil adapts to your portable scrying device* |
+
 ## 🗝️ Sacred Endpoints
 
 - `GET /` - **Main Vigil Chamber** - The primary dashboard of shadows
