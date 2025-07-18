@@ -1,194 +1,259 @@
-# 🐳 Container Health Monitor
+# ⚔️ Container Vigil - Guardian of the Digital Realm
 
-A lightweight, real-time dashboard for monitoring Docker and Podman containers' health, resource usage, and system metrics. Built with Flask, Socket.IO, and designed to run on both Linux and Windows.
+*"In the depths of the server halls, where shadows dance with flickering LEDs, a vigilant guardian watches over the containerized souls..."*
 
-## Features
+A dark, gothic-themed real-time dashboard for monitoring Docker and Podman containers' health, resource usage, and system metrics. Forged in the fires of Flask and Socket.IO, designed to run across the realms of Linux and Windows.
 
-- **Container Engine Support**: Works with both Docker and Podman
-- **Real-time Monitoring**: Live updates every 5 seconds
-- **Container Metrics**: CPU, memory, network I/O for all containers
-- **Host System Stats**: CPU, memory, disk usage of the host machine
-- **Cross-Platform**: Compatible with Linux and Windows
-- **Responsive UI**: Works on desktop and mobile devices
-- **Health Checks**: Built-in health endpoint for monitoring
-- **Lightweight**: Minimal resource footprint
-- **Auto-Detection**: Automatically detects available container engine
-
-## Quick Start
-
-### Docker
-
-```bash
-# Clone and run with Docker
-git clone https://github.com/m3hr4nn/BonfireWatch.git && cd container-health-monitor && docker-compose up -d
-
-# Or build and run directly
-docker build -t container-health-monitor . && docker run -d -p 8443:8443 -v /var/run/docker.sock:/var/run/docker.sock:ro container-health-monitor
+```
+    ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
+    ║                                                               ║
+    ║        "Not all containers that are stopped are lost,        ║
+    ║         Not all that wander in memory are leaked."           ║
+    ║                                                               ║
+    ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
 ```
 
-### Podman
+## 🏰 Features of the Vigil
+
+- **⚜️ Dual Engine Mastery**: Commands both Docker and Podman legions
+- **🔥 Real-time Communion**: Live updates every 5 seconds through mystical channels
+- **📊 Vessel Metrics**: Soul Power (CPU), Memory Essence, Network flux for all vassals
+- **🌟 Host Realm Statistics**: Soul Power, Memory Essence, Storage Vault usage
+- **🗡️ Cross-Platform Dominion**: Rules over Linux and Windows territories
+- **📱 Responsive Interface**: Adapts to desktop war rooms and mobile scouting devices
+- **💚 Health Rituals**: Built-in health endpoint for realm monitoring
+- **🪶 Lightweight Presence**: Minimal resource footprint, maximum vigilance
+- **🔍 Auto-Detection**: Automatically senses available container engines
+
+## 🎭 The Sacred Terminology
+
+*Understanding the language of the Container Vigil:*
+
+| **Gothic Term** | **Mortal Translation** | **Meaning** |
+|-----------------|------------------------|-------------|
+| **Engine** | Container Engine | Docker or Podman runtime |
+| **Soul Power** | CPU Usage | Processing power consumption |
+| **Memory Essence** | Memory Usage | RAM utilization |
+| **Vassals** | Containers | Running container count |
+| **Last Vigil** | Last Update | Time of most recent monitoring cycle |
+| **Host Realm** | Host System | Physical server/machine statistics |
+| **Container Legion** | Container List | All containers under watch |
+| **Active** | Running | Container in active state |
+| **Dormant** | Paused | Container in suspended state |
+| **Fallen** | Stopped | Container in terminated state |
+
+## 🔮 Quick Conjuration
+
+### 🐳 Docker Summoning
 
 ```bash
-# Make sure Podman socket is enabled
+# Clone the ancient tome and awaken the vigil
+git clone https://github.com/m3hr4nn/BonfireWatch.git
+cd container-health-monitor
+docker-compose up -d
+
+# Or forge and command directly
+docker build -t container-vigil . 
+docker run -d -p 8443:8443 -v /var/run/docker.sock:/var/run/docker.sock:ro container-vigil
+```
+
+### 🦭 Podman Invocation
+
+```bash
+# Ensure the mystical socket is awakened
 systemctl --user enable --now podman.socket
 
-# Clone and run with Podman
-git clone https://github.com/m3hr4nn/BonfireWatch.git && cd container-health-monitor && podman-compose up -d
+# Clone and raise the vigil
+git clone https://github.com/m3hr4nn/BonfireWatch.git
+cd container-health-monitor
+podman-compose up -d
 
-# Or build and run directly
-podman build -t container-health-monitor . && podman run -d -p 8443:8443 -v /run/podman/podman.sock:/var/run/docker.sock:ro container-health-monitor
+# Or craft and deploy directly
+podman build -t container-vigil .
+podman run -d -p 8443:8443 -v /run/podman/podman.sock:/var/run/docker.sock:ro container-vigil
 ```
 
-### Windows Setup
+### 🪟 Windows Dominion
 
 ```powershell
-# Windows with Docker Desktop
-docker build -t container-health-monitor .
-docker run -d -p 8443:8443 -v //var/run/docker.sock:/var/run/docker.sock:ro container-health-monitor
+# Windows realm with Docker Desktop
+docker build -t container-vigil .
+docker run -d -p 8443:8443 -v //var/run/docker.sock:/var/run/docker.sock:ro container-vigil
 
-# Windows with Podman
-podman build -t container-health-monitor .
-podman run -d -p 8443:8443 -v //run/podman/podman.sock:/var/run/docker.sock:ro container-health-monitor
+# Windows realm with Podman
+podman build -t container-vigil .
+podman run -d -p 8443:8443 -v //run/podman/podman.sock:/var/run/docker.sock:ro container-vigil
 ```
 
-## Access Dashboard
+## 🌟 Enter the Vigil Chamber
 
-Open your browser and go to: **http://localhost:8443**
+Open your scrying device (browser) and venture to: **http://localhost:8443**
 
-## API Endpoints
+*Behold the gothic dashboard where shadows dance with metrics, and containers bow before your watchful gaze.*
 
-- `GET /` - Main dashboard
-- `GET /health` - Health check endpoint
-- `GET /api/containers` - JSON API for container information
-- `GET /api/system` - JSON API for system information
+## 🗝️ Sacred Endpoints
 
-## Container Engine Detection
+- `GET /` - **Main Vigil Chamber** - The primary dashboard of shadows
+- `GET /health` - **Pulse of the Realm** - Health check ritual
+- `GET /api/containers` - **Legion Registry** - JSON grimoire of container information
+- `GET /api/system` - **Realm Status** - JSON chronicle of system information
 
-The application automatically detects which container engine is available:
+## 🔍 Engine Detection Sorcery
 
-1. **Podman Detection**: Checks for `podman` command and socket
-2. **Docker Detection**: Falls back to Docker if Podman is not available
-3. **API Compatibility**: Uses Docker API with both engines
+The Container Vigil automatically senses which engine dwells within your realm:
 
-### Podman Setup Requirements
+1. **🦭 Podman Sensing**: Scans for `podman` command and mystical socket
+2. **🐳 Docker Divination**: Falls back to Docker if Podman spirits are absent
+3. **🔗 API Harmony**: Uses Docker API communion with both engines
 
-For Podman, ensure the socket is enabled:
+### Podman Socket Awakening
+
+For Podman mastery, ensure the socket breathes:
 
 ```bash
-# Enable Podman socket (rootless)
+# Awaken Podman socket (rootless)
 systemctl --user enable --now podman.socket
 
-# Or for system-wide (rootful)
+# Or for system-wide dominion (rootful)
 sudo systemctl enable --now podman.socket
 
-# Verify socket is running
+# Verify the socket draws breath
 systemctl --user status podman.socket
 ```
 
-### Docker vs Podman Socket Locations
+### Sacred Socket Locations
 
-- **Docker**: `/var/run/docker.sock`
-- **Podman (rootless)**: `/run/user/$UID/podman/podman.sock`
-- **Podman (rootful)**: `/run/podman/podman.sock`
+- **🐳 Docker**: `/var/run/docker.sock`
+- **🦭 Podman (rootless)**: `/run/user/$UID/podman/podman.sock`
+- **🦭 Podman (rootful)**: `/run/podman/podman.sock`
 
-## Requirements
+## ⚡ Realm Requirements
 
-- Docker OR Podman installed and running
-- Container socket access (Docker or Podman socket)
-- Port 8443 available
+- Docker OR Podman dwelling and breathing within your system
+- Container socket access (Docker or Podman conduit)
+- Port 8443 gateway available
+- A heart brave enough to gaze upon the gothic truth
 
-## Architecture
+## 🏛️ Architecture of Shadows
 
 ```
-├── Dockerfile              # Multi-stage Docker build
-├── docker-compose.yml      # One-command deployment
-├── requirements.txt        # Python dependencies
-├── app.py                  # Main Flask application
+├── Dockerfile              # Multi-stage forge blueprint
+├── docker-compose.yml      # One-command summoning circle
+├── requirements.txt        # Python spell components
+├── app.py                  # Main Flask grimoire
 └── templates/
-    └── index.html          # Dashboard frontend
+    └── index.html          # Gothic dashboard interface
 ```
 
-## Features in Detail
+## 🎯 Powers of the Vigil
 
-### Container Monitoring
-- Container status (running, stopped, paused)
-- Real-time CPU and memory usage
-- Network I/O statistics
-- Container metadata (image, ID, ports)
+### 🏰 Container Legion Monitoring
+- Vassal status (Active, Dormant, Fallen)
+- Real-time Soul Power and Memory Essence consumption
+- Network flux statistics
+- Container essence metadata (sigil, seal, gateways)
 
-### Host System Monitoring  
-- CPU usage percentage
-- Memory usage and availability
-- Disk usage statistics
-- Network statistics
+### 🌍 Host Realm Surveillance
+- Soul Power usage percentage
+- Memory Essence availability and consumption
+- Storage Vault statistics
+- Network pulse monitoring
 
-### Real-time Updates
-- WebSocket connection for live updates
-- Connection status indicator
-- Automatic reconnection on disconnect
+### ⚡ Real-time Communion
+- WebSocket connection for live spiritual updates
+- Connection status beacon
+- Automatic reconnection upon severed bonds
 
-## Security
+## 🛡️ Security Sanctification
 
-- Runs as non-root user inside container
-- Read-only access to Docker socket
-- No external dependencies beyond Python packages
-- Health checks for container monitoring
+- Operates as humble servant (non-root) within container
+- Read-only communion with Docker socket
+- No external dependencies beyond Python mysticism
+- Health rituals for container surveillance
+- Gothic-themed interface to intimidate unauthorized access
 
-## Development
+## 🔬 Development Rituals
 
-### Local Development
+### Local Chamber Setup
 ```bash
-# Install dependencies
+# Gather spell components
 pip install -r requirements.txt
 
-# Create templates directory
+# Prepare sacred templates
 mkdir -p templates
 
-# Run locally (requires Docker daemon)
+# Awaken locally (requires Docker daemon)
 python app.py
 ```
 
-### Environment Variables
-- `FLASK_ENV`: Set to 'development' for debug mode
-- `PYTHONUNBUFFERED`: Set to 1 for real-time logging
+### Environment Enchantments
+- `FLASK_ENV`: Set to 'development' for debug sight
+- `PYTHONUNBUFFERED`: Set to 1 for real-time prophecy logging
 
-## Troubleshooting
+## 🔧 Troubleshooting the Shadows
 
-### Common Issues
+### Common Dark Omens
 
-1. **Docker socket permission denied**
+1. **🚫 Docker socket permission denied**
    ```bash
-   # Linux: Add user to docker group
+   # Linux: Grant user access to docker brotherhood
    sudo usermod -aG docker $USER
    ```
 
-2. **Port 8443 already in use**
+2. **🔒 Port 8443 already claimed**
    ```bash
-   # Change port in docker-compose.yml or use different port
+   # Change port in docker-compose.yml or use different gateway
    docker run -p 8080:8443 ...
    ```
 
-3. **Container not showing stats**
-   - Ensure container engine daemon is running
+3. **👻 Container not revealing stats**
+   - Ensure container engine daemon draws breath
    - Check container socket permissions
-   - For Podman: Enable socket with `systemctl --user enable --now podman.socket`
-   - Verify container has access to the appropriate socket
+   - For Podman: Awaken socket with `systemctl --user enable --now podman.socket`
+   - Verify container has access to the appropriate mystical conduit
 
-## Contributing
+## 🎨 Visual Transformation
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+This gothic incarnation features:
+- **🌙 Dark atmospheric design** with medieval aesthetics
+- **⚔️ Gothic typography** using Cinzel and Uncial Antiqua fonts
+- **🔥 Animated elements** with flickering and glowing effects
+- **🏰 Themed terminology** transforming technical terms into medieval language
+- **💎 Ornate decorative elements** with swords and fleur-de-lis symbols
+- **🌟 Immersive experience** that makes container monitoring feel epic
 
-## License
+## 🤝 Join the Fellowship
 
-MIT License - see LICENSE file for details
+1. Fork the ancient repository
+2. Create a feature branch in the shadow realm
+3. Inscribe your changes with gothic precision
+4. Add tests if the spirits demand it
+5. Submit a pull request to the council
 
-## Support
+## 📜 License of the Realm
 
-For issues and questions:
-- Open an issue on GitHub
-- Check the troubleshooting section
-- Verify Docker daemon is running and accessible
+MIT License - see LICENSE scroll for sacred details
+
+## 🆘 Seek Aid from the Council
+
+For dark omens and mystical questions:
+- Open an issue in the GitHub sanctuary
+- Consult the troubleshooting grimoire
+- Verify Docker daemon breathes and responds to your call
+- Join our Discord server: **The Container Vigil Guild** (invite in repository)
+
+---
+
+*"In the end, we are all just containers in the great orchestration of existence. Some run, some pause, some stop... but the Vigil watches eternal."*
+
+```
+    ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
+    ║                                                               ║
+    ║             May your containers run eternal,                  ║
+    ║              Your memory never leak,                          ║
+    ║             And your CPU never idle.                          ║
+    ║                                                               ║
+    ⚔️ ═══════════════════════════════════════════════════════════ ⚔️
+```
+
+**⚜️ Crafted in the digital forges by the Container Vigil Guild ⚜️**
